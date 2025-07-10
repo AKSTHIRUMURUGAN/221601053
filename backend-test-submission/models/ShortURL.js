@@ -10,6 +10,7 @@ const shortURLSchema = new mongoose.Schema({
   originalURL: { type: String, required: true },
   shortcode: { type: String, required: true, unique: true },
   expiryDate: { type: Date, required: true },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   clicks: [clickSchema],
 }, { timestamps: true });
 

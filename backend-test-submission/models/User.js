@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
   },
   password: { type: String, required: true },
+  shortenedUrls: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ShortURL' }],
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
