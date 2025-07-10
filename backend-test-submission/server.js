@@ -11,7 +11,10 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: 'https://url-shortener-backend-espv.onrender.com' || 'http://localhost:3000',
+  origin: [
+    'https://url-for-all.vercel.app/', // <-- Replace with your actual Vercel frontend URL
+    'http://localhost:3000'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
