@@ -226,7 +226,7 @@ exports.updateShortURL = async (req, res) => {
     console.log('URL updated successfully');
     res.status(200).json({
       message: 'Short URL updated successfully',
-      shortLink: `http://localhost:5000/${shortUrl.shortcode}`,
+      shortLink: `https://url-for-all.vercel.app/${shortUrl.shortcode}`,
       expiry: shortUrl.expiryDate.toISOString(),
       shortcode: shortUrl.shortcode,
       wasExpired: isExpired,
