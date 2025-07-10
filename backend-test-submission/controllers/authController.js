@@ -28,12 +28,14 @@ exports.login = async (req, res) => {
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    // Set token in HTTP-only cookie
+    // Set token in HTTP-only cookie for cross-origin (frontend-backend on different domains)
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production', // Use secure in production
-      sameSite: 'strict',
-      maxAge: 60 * 60 * 1000, // 1 hour
+      secure: true, // Must be true for SameSite: 'none' and HTTPS
+      sameSite: 'none', // Required for cross-site cookie
+      maxAge: 60*60*1000, // 1 hour
+      domain: '.onrender.com', // Allow subdomains (optional, but can help)
+      path: '/', // Root path
     });
 
     res.status(200).json({ 

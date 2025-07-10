@@ -76,6 +76,7 @@ function SpamCheckerContent() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ url: currentUrl }),
+          credentials: 'include', // Ensure cookies are sent
         });
 
         if (!response.ok) {
