@@ -34,7 +34,6 @@ exports.login = async (req, res) => {
       secure: true, // Must be true for SameSite: 'none' and HTTPS
       sameSite: 'none', // Required for cross-site cookie
       maxAge: 60*60*1000, // 1 hour
-      domain: '.onrender.com', // Allow subdomains (optional, but can help)
       path: '/', // Root path
     });
 
