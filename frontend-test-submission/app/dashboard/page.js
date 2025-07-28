@@ -384,7 +384,7 @@ export default function DashboardPage() {
               <div className="space-y-4">
                 {profile.shortenedUrls.map((url) => {
                   const isExpired = new Date(url.expiryDate) < new Date();
-                  const shortUrl = `http://localhost:5000/${url.shortcode}`;
+                  const shortUrl = `https://two21601053.onrender.com/${url.shortcode}`;
                   const isEditing = editingUrl?._id === url._id;
                   
                   return (
